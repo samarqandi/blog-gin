@@ -9,6 +9,7 @@ import (
 
 func main() {
 	router := gin.Default()
+	
 
 	router.GET("/", func(ctx *gin.Context) {
 		infrastructure.LoadEnv()
