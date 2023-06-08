@@ -23,7 +23,7 @@ func (p PostRepository) FindAll(post models.Post, keyword string) (*[]models.Pos
 	var posts []models.Post
 	var totalRows int64 = 0
 
-	queryBuilder := p.db.DB.Order("created_at desc").Models(&models.Post{})
+	queryBuilder := p.db.DB.Order("created_at desc").Model(&models.Post{})
 
 	if keyword != "" {
 		queryKeyword := "%" + keyword + "%"
