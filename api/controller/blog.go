@@ -89,11 +89,11 @@ func (p *PostController) GetPost(c *gin.Context) {
 		Data:    &response})
 }
 
-func (p *PostCOntroller) DeletePost(c *gin.Context) {
+func (p *PostController) DeletePost(c *gin.Context) {
 	idParam := c.Param("id")
 	id, err := strconv.ParseInt(idParam, 10, 64)
 	if err != nil {
-		util.ErrorJSON(c, http.StatusbadRequest, "id invalid")
+		util.ErrorJSON(c, http.StatusBadRequest, "id invalid")
 		return
 	}
 	err = p.service.Delete(id)
@@ -115,7 +115,7 @@ func (p PostController) UpdatePost(ctx *gin.Context) {
 	id, err := strconv.ParseInt(idParam, 10, 64)
 
 	if err != nil {
-		util.ErrorJSON(ctx.http.StatusBadRequest, "id invalid")
+		util.ErrorJSON(ctx, http.StatusBadRequest, "id invalid")
 		return
 	}
 	var post models.Post
