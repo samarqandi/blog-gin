@@ -1,4 +1,4 @@
-FROM golang:alpine
+FROM golang:1.20.4-alpine
 
 RUN mkdir /app
 
@@ -10,9 +10,6 @@ ADD go.sum .
 RUN go mod download
 ADD . .
 
-RUN go get github.com/githubnemo/CompileDaemon
-RUN go install github.com/githubnemo/CompileDaemon
-
 EXPOSE 8080
 
-ENTRYPOINT CompileDaemon --build="go build main.go" --command=./main
+CMD ["go", "run", "."]
